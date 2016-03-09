@@ -3,11 +3,53 @@
 <head>
   <title>YugiohDb</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <base href="/" />
 </head>
-<body>
+<body ng-app="yugiohDb">
+  <div class="navbar-wrapper">
+    <nav class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div class="navbar-collapse collapse">
 
-<%= yield %>
+          <ul class="nav navbar-nav" ng-init="tab = 'home'">
+            <li><a ng-click="tab = 'home'" href="#">Home</a></li>
+            <li><a ng-click="tab = 'about'" href="#about">About</a></li>
+            <li><a ng-click="tab = 'contact'" href="#contact">Contact</a></li>
+            <li>
+              <form class="navbar-form" ng-controller="SearchCtrl">
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
+                      <input type="text" ng-model="asyncSelected" placeholder="Enter card/set name" uib-typeahead="item.name for item in getItem($viewValue)" typeahead-on-select="onItemSelected($item, $model, $label)" class="form-control">
+                  </div>
+                  
+                </div>
+              </form>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Signup</a></li>
+          </ul>
+        </div>
+
+
+      </div>
+    </nav>
+  </div>
+	
+	<ui-view></ui-view>
 
 </body>
 </html>

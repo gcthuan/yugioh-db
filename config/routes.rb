@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  root 'application#angular'
+  get 'search', to: 'search#search', defaults: {format: :json}
+  resources :cards
+  resources :card_sets
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -11,31 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160304022642) do
+ActiveRecord::Schema.define(version: 20160307072406) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "card_sets", force: :cascade do |t|
-    t.string   "name",       null: false
+    t.string   "name",                       null: false
     t.string   "slug"
     t.jsonb    "data"
     t.string   "set_image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "itype",      default: "set"
   end
 
   add_index "card_sets", ["name"], name: "index_card_sets_on_name", unique: true, using: :btree
   add_index "card_sets", ["slug"], name: "index_card_sets_on_slug", unique: true, using: :btree
 
   create_table "cards", force: :cascade do |t|
-    t.string   "name",          null: false
+    t.string   "name",                           null: false
     t.string   "slug"
     t.jsonb    "data"
     t.jsonb    "card_versions"
     t.string   "card_image"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "itype",         default: "card"
   end
 
   add_index "cards", ["name"], name: "index_cards_on_name", unique: true, using: :btree
