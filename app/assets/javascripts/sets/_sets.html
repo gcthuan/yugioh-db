@@ -1,0 +1,48 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+			<img src="{{set.set_image}}" class="img-responsive">
+		</div>
+		<div class="col-md-6">
+			<h2>{{set.name}}</h2>
+			<table class="table table-bordered" style="width: auto;">
+
+				<tbody>
+					<tr ng-repeat="(rarity, count) in set.data.rarities">
+						<th>{{rarity}}</th>
+						<td>{{count}}</td>
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-9">
+			<h2>Cards in {{set.name}}</h2>
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th></th>
+						<th>Name</th>
+						<th>Print Tag</th>
+						<th>Attribute</th>
+						<th>Type</th>
+						<th>Rarity</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="card in set.data.cards">
+
+						<td>Image</td>
+						<td>{{card.name}}</td>
+						<td>{{card.numbers[0].print_tag}}</td>
+						<td>{{card.family}}</td>
+						<td>{{card.type}}</td>
+						<td>{{card.numbers[0].rarity}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

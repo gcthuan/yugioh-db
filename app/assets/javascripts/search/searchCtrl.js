@@ -1,4 +1,6 @@
 yugiohDb.controller("SearchCtrl", function($scope, $http, $window, $location) {
+
+
 	$scope.getItem = function(name) {
 		return $http.get('search', {
 			params: {
@@ -20,5 +22,7 @@ yugiohDb.controller("SearchCtrl", function($scope, $http, $window, $location) {
 			// $window.location.href = "card_sets/" + $item.slug + ".json";
 			$location.path('/card_sets/' + $item.slug);
 		}
+		$scope.asyncSelected = '';
 	};
+
 });

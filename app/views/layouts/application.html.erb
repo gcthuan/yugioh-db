@@ -18,7 +18,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="/">Project name</a>
         </div>
         <div class="navbar-collapse collapse">
 
@@ -27,7 +27,7 @@
             <li><a ng-click="tab = 'about'" href="#about">About</a></li>
             <li><a ng-click="tab = 'contact'" href="#contact">Contact</a></li>
             <li>
-              <form class="navbar-form" ng-controller="SearchCtrl">
+              <form class="navbar-form" ng-controller="SearchCtrl" ng-submit="getItem(asyncSelected)">
                 <div class="form-group">
                   <div class="input-group">
                     <div class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
