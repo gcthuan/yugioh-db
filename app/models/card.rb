@@ -29,5 +29,5 @@ class Card < ActiveRecord::Base
 
 end
 
-Card.__elasticsearch__.create_index! force: true
-Card.import
+# Card.__elasticsearch__.create_index! force: true
+# Card.import

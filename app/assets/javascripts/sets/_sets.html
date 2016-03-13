@@ -5,7 +5,7 @@
 		</div>
 		<div class="col-md-6">
 			<h2>{{set.name}}</h2>
-			<table class="table table-bordered" style="width: auto;">
+			<table class="table table-bordered">
 
 				<tbody>
 					<tr ng-repeat="(rarity, count) in set.data.rarities">
@@ -17,6 +17,7 @@
 
 		</div>
 	</div>
+
 	<div class="row">
 		<div class="col-md-9">
 			<h2>Cards in {{set.name}}</h2>
@@ -34,8 +35,8 @@
 				<tbody>
 					<tr ng-repeat="card in set.data.cards">
 
-						<td>Image</td>
-						<td>{{card.name}}</td>
+						<td><img ng-src="{{card.card_image}}" class="img-responsive center-block" style="width:50%" alt="{{card.name}}"></img></td>
+						<td><a ng-href="cards/{{card.slug}}">{{card.name}}</a></td>
 						<td>{{card.numbers[0].print_tag}}</td>
 						<td>{{card.family}}</td>
 						<td>{{card.type}}</td>

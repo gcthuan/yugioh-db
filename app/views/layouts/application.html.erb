@@ -9,7 +9,7 @@
 </head>
 <body ng-app="yugiohDb">
   <div class="navbar-wrapper">
-    <nav class="navbar navbar-inverse navbar-static-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -27,15 +27,15 @@
             <li><a ng-click="tab = 'about'" href="#about">About</a></li>
             <li><a ng-click="tab = 'contact'" href="#contact">Contact</a></li>
             <li>
-              <form class="navbar-form" ng-controller="SearchCtrl" ng-submit="getItem(asyncSelected)">
+              <form class="navbar-form" ng-controller="SearchCtrl" ng-submit="">
                 <div class="form-group">
-                  <div class="input-group">
-                    <div class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
-                      <input type="text" ng-model="asyncSelected" placeholder="Enter card/set name" uib-typeahead="item.name for item in getItem($viewValue)" typeahead-on-select="onItemSelected($item, $model, $label)" class="form-control">
+                  <div class="input-group" style="display:table">
+                    <div class="input-group-addon" style="width: 8%"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
+                      <input type="text" typeahead-template-url="columnTwo.html" ng-model="asyncSelected" placeholder="Enter card/set name" uib-typeahead="item.name for item in getItem($viewValue)" typeahead-on-select="onItemSelected($item, $model, $label)" class="form-control">
                   </div>
-                  
                 </div>
               </form>
+
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -44,11 +44,18 @@
           </ul>
         </div>
 
-
       </div>
     </nav>
   </div>
 	
+  <script type="text/ng-template" id="columnTwo.html">
+    
+    <a tabindex="-1">
+      <img ng-src="{{match.model.card_image || match.model.set_image}}" ng-style="{width : '8%'}"></img>
+      <span ng-bind-html="match.label | uibTypeaheadHighlight:query" ng-attr-title="{{match.label}}"></span>
+    </a>
+  </script>
+
 	<ui-view></ui-view>
 
 </body>

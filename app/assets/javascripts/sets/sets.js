@@ -7,5 +7,9 @@ yugiohDb.factory('sets', ['$http', function ($http) {
 		});
 	};
 
+	// obj.convertCardNameToUrl = function(name) {
+	// 	return '/cards/' + name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
+	// };
+
 	return obj;
 }]);

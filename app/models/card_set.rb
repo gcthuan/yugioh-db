@@ -32,9 +32,23 @@ class CardSet < ActiveRecord::Base
 		ensure
 			http.close if http
 		end
-		
 	end
+
+	def self.add_card_image_and_slug_to_sets
+		CardSet.all.each do |card_set|
+			cards_in_set = card_set.data["cards"]
+			cards_in_set.each do |card|
+				current_card = Card.where(name: card["name"]).first
+				card_image = current_card.card_image
+				card_slug = current_card.slug
+				card["card_image"] = card_image
+				card["slug"] = card_slug
+				card_set.save!
+			end
+		end
+	end
+
 end
 
-CardSet.__elasticsearch__.create_index! force: true
-CardSet.import
+# CardSet.__elasticsearch__.create_index! force: true
+# CardSet.import
