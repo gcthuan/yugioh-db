@@ -1,4 +1,4 @@
-var yugiohDb = angular.module("yugiohDb", ["ui.router", "templates", "ui.bootstrap"]);
+var yugiohDb = angular.module("yugiohDb", ["ui.router", "templates", "ui.bootstrap", "infinite-scroll"]);
 
 yugiohDb.config(["$stateProvider", "$locationProvider", "$urlRouterProvider", function($stateProvider, $locationProvider, $urlRouterProvider) {
 	$stateProvider.state('home', {
@@ -30,6 +30,11 @@ yugiohDb.config(["$stateProvider", "$locationProvider", "$urlRouterProvider", fu
 				return sets.getOne($stateParams.id);
 			}]
 		}
+	})
+	.state('search', {
+		url: '/search',
+		templateUrl: 'search/_search.html',
+		controller: 'SearchCtrl',
 	});
 	$locationProvider.html5Mode(true);
 	$urlRouterProvider.otherwise('home');

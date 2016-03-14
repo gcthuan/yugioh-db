@@ -12,5 +12,6 @@ yugiohDb.factory('cards', ['$http', function($http) {
 		})
 	};
 
+
 	return obj;
 }]);

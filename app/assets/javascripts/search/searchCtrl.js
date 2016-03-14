@@ -1,8 +1,9 @@
-yugiohDb.controller("SearchCtrl", function($scope, $http, $window, $location) {
+yugiohDb.controller("SearchCtrl", ['$scope', '$http', '$location', 'cards' ,function($scope, $http, $location, cards) {
 
+	$scope.result = [];
 
 	$scope.getItem = function(name) {
-		return $http.get('search', {
+		return $http.get('search.json', {
 			params: {
 				q: name
 			}
@@ -25,4 +26,19 @@ yugiohDb.controller("SearchCtrl", function($scope, $http, $window, $location) {
 		$scope.asyncSelected = '';
 	};
 
-});
+	$http.get('cards/search', {
+			params: {
+				q: 'light',
+				page: 1
+			}
+		}).then(function(response) {
+			return response.data.map(function(item) {
+				// console.log(item);
+				
+				$scope.result.push(item);
+
+				
+			})
+		});
+
+}]);
