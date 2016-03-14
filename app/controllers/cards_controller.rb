@@ -19,6 +19,15 @@ class CardsController < ApplicationController
     @cards = Card.order("impressions_count DESC")[0..9]
   end
 
+  def search
+    if params[:key].blank? || params[:value].blank?
+      @cards = Card.all.page params[:page]
+    else
+      @cards = Card.where("data ->> '#{params[:key]}' = '#{params[:value]}'").page params[:page]
+    end
+    
+  end
+
   # GET /cards/new
   def new
     @card = Card.new
