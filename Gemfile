@@ -33,6 +33,8 @@ gem 'elasticsearch-rails'
 gem 'rack-cors', :require => 'rack/cors'
 
 gem 'angular-rails-templates'
+# track page view
+gem 'impressionist'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

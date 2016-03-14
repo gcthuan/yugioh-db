@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'application#angular'
   get 'search', to: 'search#search', defaults: {format: :json}
+  get 'cards/popular', to: 'cards#show_most_popular', defaults: {format: :json}
+  get 'card_sets/popular', to: 'card_sets#show_most_popular', defaults: {format: :json}
   resources :cards
   resources :card_sets
 

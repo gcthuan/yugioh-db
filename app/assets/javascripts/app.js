@@ -4,7 +4,12 @@ yugiohDb.config(["$stateProvider", "$locationProvider", "$urlRouterProvider", fu
 	$stateProvider.state('home', {
 		url: '/',
 		templateUrl: 'home/_home.html',
-		controller: 'MainCtrl'
+		controller: 'MainCtrl',
+		resolve: {
+			popularCards: ['cards', function(cards) {
+				return cards.getPopular();
+			}]
+		}
 	})
 	.state('cards', {
 		url: '/cards/{id}',

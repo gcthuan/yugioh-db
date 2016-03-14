@@ -5,6 +5,7 @@ class CardSet < ActiveRecord::Base
 	extend FriendlyId
 	friendly_id :name, use: [:slugged, :finders]
 	validates :name, presence: true, uniqueness: true
+	is_impressionable :counter_cache => true
 
 	#send requests to yugiohprices API and pull data to our database
 	def self.initialize_set_db

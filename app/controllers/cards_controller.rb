@@ -1,6 +1,6 @@
 class CardsController < ApplicationController
   before_action :set_card, only: [:show, :edit, :update, :destroy]
-
+  impressionist actions: [:show]
   # GET /cards
   # GET /cards.json
   def index
@@ -10,6 +10,13 @@ class CardsController < ApplicationController
   # GET /cards/1
   # GET /cards/1.json
   def show
+    impressionist(@card, "#{@card} is visited.")
+  end
+
+  #return top 10 most popular cards
+  # GET /cards/popular.json
+  def show_most_popular
+    @cards = Card.order("impressions_count DESC")[0..9]
   end
 
   # GET /cards/new

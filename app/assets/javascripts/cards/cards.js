@@ -6,5 +6,11 @@ yugiohDb.factory('cards', ['$http', function($http) {
 		});
 	};
 
+	obj.getPopular = function() {
+		return $http.get('/cards/popular').then(function(response) {
+			return response.data;
+		})
+	};
+
 	return obj;
 }]);

@@ -24,7 +24,7 @@
 			<table class="table table-bordered">
 				<thead>
 					<tr>
-						<th></th>
+						<th style="width: 20%"></th>
 						<th>Name</th>
 						<th>Print Tag</th>
 						<th>Attribute</th>
@@ -35,7 +35,7 @@
 				<tbody>
 					<tr ng-repeat="card in set.data.cards">
 
-						<td><img ng-src="{{card.card_image}}" class="img-responsive center-block" style="width:50%" alt="{{card.name}}"></img></td>
+						<td><img ng-src="{{card.card_image}}" class="img-responsive center-block" alt="{{card.name}}"></img></td>
 						<td><a ng-href="cards/{{card.slug}}">{{card.name}}</a></td>
 						<td>{{card.numbers[0].print_tag}}</td>
 						<td>{{card.family}}</td>

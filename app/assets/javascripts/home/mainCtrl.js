@@ -1,3 +1,3 @@
-yugiohDb.controller("MainCtrl", function($scope) {
-	$scope.test = "hihi";
-});
+yugiohDb.controller("MainCtrl", ['popularCards', '$scope', function(popularCards, $scope) {
+	$scope.popularCards = popularCards;
+}]);
