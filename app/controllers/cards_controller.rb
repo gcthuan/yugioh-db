@@ -20,11 +20,7 @@ class CardsController < ApplicationController
   end
 
   def search
-    if params[:q].blank?
-      @cards = Card.all.page params[:page]
-    else
-      @cards = Card.where("data ->> 'family' = '#{params[:q]}'").page params[:page]
-    end
+    @cards = Card.where("data ->> 'family' = '#{params[:family]}' OR data ->> 'type' = '#{params[:type]}'").page params[:page]
     
   end
 

@@ -1,4 +1,4 @@
-yugiohDb.controller("SearchCtrl", ['$scope', '$http', '$location', 'cards' ,function($scope, $http, $location, cards) {
+yugiohDb.controller("TypeaheadCtrl", ['$scope', '$http', '$location', 'cards' ,function($scope, $http, $location, cards) {
 
 	$scope.result = [];
 
@@ -25,20 +25,5 @@ yugiohDb.controller("SearchCtrl", ['$scope', '$http', '$location', 'cards' ,func
 		}
 		$scope.asyncSelected = '';
 	};
-
-	$http.get('cards/search', {
-			params: {
-				q: 'light',
-				page: 1
-			}
-		}).then(function(response) {
-			return response.data.map(function(item) {
-				// console.log(item);
-				
-				$scope.result.push(item);
-
-				
-			})
-		});
 
 }]);

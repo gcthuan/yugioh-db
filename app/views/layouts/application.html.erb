@@ -23,11 +23,11 @@
         <div class="navbar-collapse collapse">
 
           <ul class="nav navbar-nav" ng-init="tab = 'home'">
-            <li><a ng-click="tab = 'home'" href="/search">Home</a></li>
+            <li><a ng-click="tab = 'home'" href="/find?family=light">Home</a></li>
             <li><a ng-click="tab = 'about'" href="#about">About</a></li>
             <li><a ng-click="tab = 'contact'" href="#contact">Contact</a></li>
             <li>
-              <form class="navbar-form" ng-controller="SearchCtrl" ng-submit="">
+              <form class="navbar-form" ng-controller="TypeaheadCtrl" ng-submit="">
                 <div class="form-group">
                   <div class="input-group" style="display:table">
                     <div class="input-group-addon" style="width: 8%"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>

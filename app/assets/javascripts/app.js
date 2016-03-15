@@ -31,11 +31,11 @@ yugiohDb.config(["$stateProvider", "$locationProvider", "$urlRouterProvider", fu
 			}]
 		}
 	})
-	.state('search', {
-		url: '/search',
-		templateUrl: 'search/_search.html',
-		controller: 'SearchCtrl',
+	.state('find', {
+		url: '/find',
+		templateUrl: 'find/_find.html',
+		controller: 'FindCtrl',
 	});
 	$locationProvider.html5Mode(true);
-	$urlRouterProvider.otherwise('home');
+	$urlRouterProvider.otherwise('/');
 }]);
