@@ -9,46 +9,46 @@
 </head>
 <body ng-app="yugiohDb">
   <div class="navbar-wrapper">
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">Project name</a>
-        </div>
-        <div class="navbar-collapse collapse">
+    <div class="container">
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" ng-init="isCollapsed = true" ng-click="isCollapsed = !isCollapsed ">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"><a href="#" class="pull-left"><img ng-src="/logo.png" class="img-responsive" ng-style="{'width': '100px'}"></a></a>
+          </div>
+          <div class="navbar-collapse" ng-class="{collapse: isCollapsed}">
 
-          <ul class="nav navbar-nav" ng-init="tab = 'home'">
-            <li><a ng-click="tab = 'home'" href="/find?family=light">Home</a></li>
-            <li><a ng-click="tab = 'about'" href="#about">About</a></li>
-            <li><a ng-click="tab = 'contact'" href="#contact">Contact</a></li>
-            <li>
-              <form class="navbar-form" ng-controller="TypeaheadCtrl" ng-submit="">
-                <div class="form-group">
-                  <div class="input-group" style="display:table">
-                    <div class="input-group-addon" style="width: 8%"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
-                      <input type="text" typeahead-template-url="columnTwo.html" ng-model="asyncSelected" placeholder="Enter card/set name" uib-typeahead="item.name for item in getItem($viewValue)" typeahead-on-select="onItemSelected($item, $model, $label)" class="form-control">
+            <ul class="nav navbar-nav" ng-init="tab = 'home'">
+              <li><a ng-click="tab = 'home'" href="/find">Home</a></li>
+              <li><a ng-click="tab = 'about'" href="#about">About</a></li>
+              <li><a ng-click="tab = 'contact'" href="#contact">Contact</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#">Login</a></li>
+              <li><a href="#">Signup</a></li>
+            </ul>
+            <form class="navbar-form" ng-controller="TypeaheadCtrl">
+                  <div class="form-group" ng-style="{'display':'inline'}">
+                    <div class="input-group" ng-style="{'display':'table'}">
+                      <div class="input-group-addon" ng-style="{'width':'1%'}"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
+                      <input type="text" typeahead-template-url="typeaheadTemplate.html" ng-model="asyncSelected" placeholder="Enter card/set name" uib-typeahead="item.name for item in getItem($viewValue)" typeahead-on-select="onItemSelected($item, $model, $label)" class="form-control">
+                    </div>
                   </div>
-                </div>
-              </form>
+            </form>
+          </div>
 
-            </li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Login</a></li>
-            <li><a href="#">Signup</a></li>
-          </ul>
         </div>
+      </nav>
+    </div>
 
-      </div>
-    </nav>
   </div>
 	
-  <script type="text/ng-template" id="columnTwo.html">
+  <script type="text/ng-template" id="typeaheadTemplate.html">
     
     <a tabindex="-1">
       <img ng-src="{{match.model.card_image || match.model.set_image}}" ng-style="{width : '8%'}"></img>

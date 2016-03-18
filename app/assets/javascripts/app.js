@@ -8,6 +8,9 @@ yugiohDb.config(["$stateProvider", "$locationProvider", "$urlRouterProvider", fu
 		resolve: {
 			popularCards: ['cards', function(cards) {
 				return cards.getPopular();
+			}],
+			popularSets: ['sets', function(sets) {
+				return sets.getPopular();
 			}]
 		}
 	})

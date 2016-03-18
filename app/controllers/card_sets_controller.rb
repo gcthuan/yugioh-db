@@ -16,7 +16,7 @@ class CardSetsController < ApplicationController
   #return 10 most popular cards
   # GET /card_sets/popular.json
   def show_most_popular
-    @card_sets = CardSet.order("impressions_count DESC")[0..9]
+    @card_sets = CardSet.order("impressions_count DESC")[0..19]
   end
 
   # GET /card_sets/new

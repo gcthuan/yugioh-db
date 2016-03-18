@@ -21,7 +21,6 @@ yugiohDb.controller("FindCtrl", ['$scope', '$http', '$location', 'cards' ,functi
 			}).then(function(response) {
 				response.data.map(function(item) {	
 					$scope.result.push(item);
-					console.log(item);
 				})
 			});
 		}

@@ -16,7 +16,7 @@ class CardsController < ApplicationController
   #return top 10 most popular cards
   # GET /cards/popular.json
   def show_most_popular
-    @cards = Card.order("impressions_count DESC")[0..9]
+    @cards = Card.order("impressions_count DESC")[0..19]
   end
 
   def search

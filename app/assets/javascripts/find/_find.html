@@ -16,8 +16,8 @@
 					<td>
 						<div>
 							<p><a ng-href="cards/{{card.slug}}">{{card.name}}</a></p>
-							<p>Type: {{card.data.type}}</p>
-							<p>Attribute: {{card.data.family}}</p>
+							<p><strong>Type</strong>: <a ng-href="find?type={{card.data.type}}">{{card.data.type}}</a></p>
+							<p><strong>Attribute</strong>: <a ng-href="find?family={{card.data.family}}">{{card.data.family}}</p>
 						</div>
 					</td>
 					<td>{{card.impressions_count}}</td>
