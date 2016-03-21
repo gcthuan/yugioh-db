@@ -13,15 +13,22 @@ class CardsController < ApplicationController
     impressionist(@card, "#{@card} is visited.")
   end
 
-  #return top 10 most popular cards
+  # return top 10 most popular cards
   # GET /cards/popular.json
   def show_most_popular
     @cards = Card.order("impressions_count DESC")[0..19]
   end
 
+  # filter card by family or type
+  # GET /cards/find?family=val1&type=val2
   def search
     @cards = Card.where("data ->> 'family' = '#{params[:family]}' OR data ->> 'type' = '#{params[:type]}'").page params[:page]
-    
+  end
+
+  # random one card from the db
+  # GET /cards/random
+  def random_one
+    @card = Card.order("RANDOM()").limit(1).first
   end
 
   # GET /cards/new

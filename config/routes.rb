@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'application#angular'
   get 'search', to: 'search#search'
   get 'cards/popular', to: 'cards#show_most_popular', defaults: {format: :json}
+  get 'cards/random', to: 'cards#random_one', defaults: {format: :json}
   get 'sets/popular', to: 'card_sets#show_most_popular', defaults: {format: :json}
   get 'find', to: 'cards#search'
   get 'card_sets/popular', to: 'card_sets#show_most_popular', defaults: {format: :json}

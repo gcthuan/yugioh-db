@@ -9,8 +9,7 @@ yugiohDb.controller("FindCtrl", ['$scope', '$http', '$location', 'cards' ,functi
 
 
 	$scope.load = function() {
-
-		if (familyValue !== "" || typeValue !== "") {
+		if (familyValue !== undefined || typeValue !== undefined) {
 			page += 1;
 			$http.get('/find.json', {
 				params: {

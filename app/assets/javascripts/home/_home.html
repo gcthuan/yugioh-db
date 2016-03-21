@@ -1,7 +1,38 @@
 <div class="jumbotron">
 	<div class="container">
-		<h2>Header</h2>
-		<p>{{tab}}</p>
+		<div class="col-md-3">
+			<img ng-src="{{randomCard.card_image}}" class="img-responsive">
+		</div>
+		<h2><a ng-href="cards/{{randomCard.slug}}">{{randomCard.name}}</a></h2>
+		<table class="table table-bordered" style="width: auto;">
+
+			<tbody>
+				<tr>
+					<th>Attribute</th>
+					<td>{{randomCard.data.family}}</td>
+				</tr>
+				<tr>
+					<th>Type</th>
+					<td>{{randomCard.data.card_type}}</td>
+				</tr>
+				<tr>
+					<th>Level</th>
+					<td>{{randomCard.data.level}}</td>
+				</tr>
+				<tr>
+					<th>ATK</th>
+					<td>{{randomCard.data.atk}}</td>
+				</tr>
+				<tr>
+					<th>DEF</th>
+					<td>{{randomCard.data.def}}</td>
+				</tr>
+				<tr>
+					<th>Description</th>
+					<td>{{randomCard.data.text}}</td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 </div>
 

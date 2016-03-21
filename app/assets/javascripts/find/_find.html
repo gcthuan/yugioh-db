@@ -10,7 +10,7 @@
 					<th>Views</th>
 				</tr>
 			</thead>
-			<tbody infinite-scroll=load()>
+			<tbody infinite-scroll="load()" infinite-scroll-disable="busy">
 				<tr ng-repeat="card in result | orderBy:'-impressions_count'">
 					<td><img class="img-responsive" ng-src="{{card.card_image}}"></img></td>
 					<td>

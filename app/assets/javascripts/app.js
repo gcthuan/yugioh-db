@@ -11,6 +11,9 @@ yugiohDb.config(["$stateProvider", "$locationProvider", "$urlRouterProvider", fu
 			}],
 			popularSets: ['sets', function(sets) {
 				return sets.getPopular();
+			}],
+			randomCard: ['cards', function(cards) {
+				return cards.getRandom();
 			}]
 		}
 	})

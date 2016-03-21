@@ -1,4 +1,5 @@
-yugiohDb.controller("MainCtrl", ['popularCards', 'popularSets','$scope', '$http', function(popularCards, popularSets,$scope, $http) {
+yugiohDb.controller("MainCtrl", ['popularCards', 'popularSets', 'randomCard','$scope', '$http', function(popularCards, popularSets, randomCard, $scope, $http) {
 	$scope.popularCards = popularCards;
 	$scope.popularSets = popularSets;
+	$scope.randomCard = randomCard;
 }]);
