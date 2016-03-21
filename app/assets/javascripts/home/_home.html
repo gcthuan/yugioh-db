@@ -9,11 +9,11 @@
 			<tbody>
 				<tr>
 					<th>Attribute</th>
-					<td>{{randomCard.data.family}}</td>
+					<td><a ng-href="/find?family={{randomCard.data.family}}" ng-click='familyFind(randomCard.data.family)'>{{randomCard.data.family}}</a></td>
 				</tr>
 				<tr>
 					<th>Type</th>
-					<td>{{randomCard.data.card_type}}</td>
+					<td><a ng-href="/find?type={{randomCard.data.type}}" ng-click='typeFind(randomCard.data.type)'>{{randomCard.data.type}}</a></td>
 				</tr>
 				<tr>
 					<th>Level</th>

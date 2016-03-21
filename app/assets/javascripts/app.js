@@ -43,5 +43,5 @@ yugiohDb.config(["$stateProvider", "$locationProvider", "$urlRouterProvider", fu
 		controller: 'FindCtrl',
 	});
 	$locationProvider.html5Mode(true);
-	$urlRouterProvider.otherwise('/');
+	// $urlRouterProvider.otherwise('/');
 }]);

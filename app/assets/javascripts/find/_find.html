@@ -10,14 +10,14 @@
 					<th>Views</th>
 				</tr>
 			</thead>
-			<tbody infinite-scroll="load()" infinite-scroll-disable="busy">
+			<tbody infinite-scroll="load()" infinite-scroll-disable="{{busy}}">
 				<tr ng-repeat="card in result | orderBy:'-impressions_count'">
 					<td><img class="img-responsive" ng-src="{{card.card_image}}"></img></td>
 					<td>
 						<div>
 							<p><a ng-href="cards/{{card.slug}}">{{card.name}}</a></p>
-							<p><strong>Type</strong>: <a ng-href="find?type={{card.data.type}}">{{card.data.type}}</a></p>
-							<p><strong>Attribute</strong>: <a ng-href="find?family={{card.data.family}}">{{card.data.family}}</p>
+							<p><strong>Type</strong>: <a ng-href="/find?type={{card.data.type}}" ng-click='typeFind(card.data.type)'>{{card.data.type}}</a></p>
+							<p><strong>Attribute</strong>: <a ng-href="/find?family={{card.data.family}}" ng-click='familyFind(card.data.family)'>{{card.data.family}}</p>
 						</div>
 					</td>
 					<td>{{card.impressions_count}}</td>

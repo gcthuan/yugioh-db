@@ -1,15 +1,18 @@
-yugiohDb.controller("FindCtrl", ['$scope', '$http', '$location', 'cards' ,function($scope, $http, $location,cards) {
+yugiohDb.controller("FindCtrl", ['$scope', '$http', '$location', 'cards', '$window' ,function($scope, $http, $location, cards, $window) {
 
 	var page = 0;
 	var familyValue = $location.search().family;
 	var typeValue = $location.search().type;
-
-
 	$scope.result = [];
+	$scope.busy = false;
 
 
 	$scope.load = function() {
-		if (familyValue !== undefined || typeValue !== undefined) {
+		
+		if (familyValue === undefined && typeValue === undefined) {
+			$scope.busy = true;
+		}
+		else {
 			page += 1;
 			$http.get('/find.json', {
 				params: {
@@ -24,5 +27,23 @@ yugiohDb.controller("FindCtrl", ['$scope', '$http', '$location', 'cards' ,functi
 			});
 		}
 	}
+
+	$scope.familyFind = function(val) {
+		// $location.path('/find?family=' + val);
+		// $scope.$apply;
+		var page = 0;
+		$window.location.href = '/find?family=' + val;
+	};
+
+	$scope.typeFind = function(val) {
+		// $location.path('/find?type=' + val);
+		// $scope.$apply;
+		var page = 0;
+		$window.location.href = '/find?type=' + val;
+	};
+
+	$scope.test = function(val) {
+		console.log(val);
+	};
 
 }]);
