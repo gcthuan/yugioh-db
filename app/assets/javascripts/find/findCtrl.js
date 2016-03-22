@@ -26,7 +26,7 @@ yugiohDb.controller("FindCtrl", ['$scope', '$http', '$location', 'cards', '$wind
 				})
 			});
 		}
-	}
+	};
 
 	$scope.familyFind = function(val) {
 		// $location.path('/find?family=' + val);

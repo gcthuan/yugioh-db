@@ -9,7 +9,7 @@
 					<th>Views</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody infinite-scroll="load()">
 				<tr ng-repeat="card in browseCards">
 					<td><img class="img-responsive" ng-src="{{card.card_image}}"></img></td>
 					<td>
