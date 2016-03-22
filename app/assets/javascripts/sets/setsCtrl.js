@@ -1,4 +1,4 @@
-yugiohDb.controller('SetsCtrl', ['$scope', 'sets', 'set', function($scope, sets, set) {
+yugiohDb.controller('SetsCtrl', ['$scope', 'set' , function($scope, set) {
 	$scope.set = set;
 
 }]);

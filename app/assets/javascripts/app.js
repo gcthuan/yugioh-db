@@ -37,13 +37,23 @@ yugiohDb.config(["$stateProvider", "$locationProvider", "$urlRouterProvider", fu
 			}]
 		}
 	})
-	.state('sets', {
+	.state('set', {
 		url: '/card_sets/{id}',
-		templateUrl: 'sets/_sets.html',
+		templateUrl: 'sets/_set.html',
 		controller: 'SetsCtrl',
 		resolve: {
 			set: ['$stateParams', 'sets', function($stateParams, sets) {
 				return sets.getOne($stateParams.id);
+			}]
+		}
+	})
+	.state('browseSets', {
+		url: '/card_sets',
+		templateUrl: 'sets/_browseSets.html',
+		controller: 'BrowseSetsCtrl',
+		resolve: {
+			browseSets: ['sets', function(sets) {
+				return sets.getAll();
 			}]
 		}
 	})

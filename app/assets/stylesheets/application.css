@@ -14,7 +14,12 @@
  *= require_tree .
  *= require_self
  */
-body { padding-top: 70px; }
+
+
+
+body { 
+  padding-top: 70px;
+}
 
 td, th {
   text-align: center;
