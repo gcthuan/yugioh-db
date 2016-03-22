@@ -9,7 +9,7 @@
 					<th>Views</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody infinite-scroll="load()">
 				<tr ng-repeat="set in browseSets">
 					<td><img class="img-responsive" ng-src="{{set.set_image}}"></img></td>
 					<td>
