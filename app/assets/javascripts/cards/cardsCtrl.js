@@ -1,3 +1,3 @@
-yugiohDb.controller('CardsCtrl', ['$scope', 'cards', 'card', function ($scope, cards, card) {
+yugiohDb.controller("CardsCtrl", ['card','$scope', function(card, $scope) {
 	$scope.card = card;
 }]);

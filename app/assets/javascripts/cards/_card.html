@@ -11,11 +11,11 @@
 				<tbody>
 					<tr>
 						<th>Attribute</th>
-						<td>{{card.data.family}}</td>
+						<td><a ng-href="/find?family={{card.data.family}}" ng-click='typeFind(card.data.family)'>{{card.data.family}}</a></td>
 					</tr>
 					<tr>
 						<th>Type</th>
-						<td>{{card.data.card_type}}</td>
+						<td><a ng-href="/find?type={{card.data.type}}" ng-click='typeFind(card.data.type)'>{{card.data.type}}</a></td>
 					</tr>
 					<tr>
 						<th>Level</th>

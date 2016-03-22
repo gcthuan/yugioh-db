@@ -30,20 +30,15 @@ yugiohDb.controller("FindCtrl", ['$scope', '$http', '$location', 'cards', '$wind
 
 	$scope.familyFind = function(val) {
 		// $location.path('/find?family=' + val);
-		// $scope.$apply;
 		var page = 0;
 		$window.location.href = '/find?family=' + val;
 	};
 
 	$scope.typeFind = function(val) {
 		// $location.path('/find?type=' + val);
-		// $scope.$apply;
 		var page = 0;
 		$window.location.href = '/find?type=' + val;
 	};
 
-	$scope.test = function(val) {
-		console.log(val);
-	};
 
 }]);

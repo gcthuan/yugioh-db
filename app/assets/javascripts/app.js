@@ -17,13 +17,23 @@ yugiohDb.config(["$stateProvider", "$locationProvider", "$urlRouterProvider", fu
 			}]
 		}
 	})
-	.state('cards', {
+	.state('card', {
 		url: '/cards/{id}',
-		templateUrl: 'cards/_cards.html',
+		templateUrl: 'cards/_card.html',
 		controller: 'CardsCtrl',
 		resolve: {
 			card: ['$stateParams', 'cards', function($stateParams, cards) {
 				return cards.getOne($stateParams.id);
+			}]
+		}
+	})
+	.state('browseCards', {
+		url: '/cards',
+		templateUrl: 'cards/_browseCards.html',
+		controller: 'BrowseCardsCtrl',
+		resolve: {
+			browseCards: ['cards', function(cards) {
+				return cards.getAll();
 			}]
 		}
 	})
@@ -43,5 +53,5 @@ yugiohDb.config(["$stateProvider", "$locationProvider", "$urlRouterProvider", fu
 		controller: 'FindCtrl',
 	});
 	$locationProvider.html5Mode(true);
-	// $urlRouterProvider.otherwise('/');
+	$urlRouterProvider.otherwise('/');
 }]);
