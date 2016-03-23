@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'application#angular'
   get 'search', to: 'search#search'
   get 'cards/popular', to: 'cards#show_most_popular', defaults: {format: :json}
