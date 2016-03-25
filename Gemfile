@@ -40,6 +40,7 @@ gem 'impressionist'
 gem 'kaminari'
 
 gem 'devise', '~> 3.4.0'
+gem 'angular_rails_csrf'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,18 +1,18 @@
 var yugiohDb = angular.module("yugiohDb", ["ui.router", "templates", "ui.bootstrap", "infinite-scroll", "Devise"]);
 
-yugiohDb.config(["$stateProvider", "$locationProvider", "$urlRouterProvider", function($stateProvider, $locationProvider, $urlRouterProvider) {
+yugiohDb.config(["$stateProvider", "$locationProvider", "$urlRouterProvider", function ($stateProvider, $locationProvider, $urlRouterProvider) {
 	$stateProvider.state('home', {
 		url: '/',
 		templateUrl: 'home/_home.html',
 		controller: 'MainCtrl',
 		resolve: {
-			popularCards: ['cards', function(cards) {
+			popularCards: ['cards', function (cards) {
 				return cards.getPopular();
 			}],
-			popularSets: ['sets', function(sets) {
+			popularSets: ['sets', function (sets) {
 				return sets.getPopular();
 			}],
-			randomCard: ['cards', function(cards) {
+			randomCard: ['cards', function (cards) {
 				return cards.getRandom();
 			}]
 		}
@@ -22,7 +22,7 @@ yugiohDb.config(["$stateProvider", "$locationProvider", "$urlRouterProvider", fu
 		templateUrl: 'cards/_card.html',
 		controller: 'CardsCtrl',
 		resolve: {
-			card: ['$stateParams', 'cards', function($stateParams, cards) {
+			card: ['$stateParams', 'cards', function ($stateParams, cards) {
 				return cards.getOne($stateParams.id);
 			}]
 		}
@@ -32,7 +32,7 @@ yugiohDb.config(["$stateProvider", "$locationProvider", "$urlRouterProvider", fu
 		templateUrl: 'cards/_browseCards.html',
 		controller: 'BrowseCardsCtrl',
 		resolve: {
-			browseCards: ['cards', function(cards) {
+			browseCards: ['cards', function (cards) {
 				return cards.getAll();
 			}]
 		}
@@ -42,7 +42,7 @@ yugiohDb.config(["$stateProvider", "$locationProvider", "$urlRouterProvider", fu
 		templateUrl: 'sets/_set.html',
 		controller: 'SetsCtrl',
 		resolve: {
-			set: ['$stateParams', 'sets', function($stateParams, sets) {
+			set: ['$stateParams', 'sets', function ($stateParams, sets) {
 				return sets.getOne($stateParams.id);
 			}]
 		}
@@ -52,7 +52,7 @@ yugiohDb.config(["$stateProvider", "$locationProvider", "$urlRouterProvider", fu
 		templateUrl: 'sets/_browseSets.html',
 		controller: 'BrowseSetsCtrl',
 		resolve: {
-			browseSets: ['sets', function(sets) {
+			browseSets: ['sets', function (sets) {
 				return sets.getAll();
 			}]
 		}
@@ -61,6 +61,26 @@ yugiohDb.config(["$stateProvider", "$locationProvider", "$urlRouterProvider", fu
 		url: '/find',
 		templateUrl: 'find/_find.html',
 		controller: 'FindCtrl',
+	})
+	.state('login', {
+		url: '/login',
+		templateUrl: 'auth/_login.html',
+		controller: 'AuthCtrl',
+		onEnter: ['$state', 'Auth', function ($state, Auth) {
+			Auth.currentUser().then(function () {
+				$state.go('home');
+			});
+		}]
+	})
+	.state('register', {
+		url: '/register',
+		templateUrl: 'auth/_register.html',
+		controller: 'AuthCtrl',
+		onEnter: ['$state', 'Auth', function ($state, Auth) {
+			Auth.currentUser().then(function () {
+				$state.go('home');
+			});
+		}]
 	});
 	$locationProvider.html5Mode(true);
 	$urlRouterProvider.otherwise('/');

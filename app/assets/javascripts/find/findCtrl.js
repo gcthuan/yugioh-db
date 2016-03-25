@@ -1,4 +1,4 @@
-yugiohDb.controller("FindCtrl", ['$scope', '$http', '$location', 'cards', '$window' ,function($scope, $http, $location, cards, $window) {
+yugiohDb.controller("FindCtrl", ['$scope', '$http', '$location', 'cards', '$window' ,function ($scope, $http, $location, cards, $window) {
 
 	var page = 0;
 	var familyValue = $location.search().family;
@@ -7,7 +7,7 @@ yugiohDb.controller("FindCtrl", ['$scope', '$http', '$location', 'cards', '$wind
 	$scope.busy = false;
 
 
-	$scope.load = function() {
+	$scope.load = function () {
 		
 		if (familyValue === undefined && typeValue === undefined) {
 			$scope.busy = true;
@@ -28,13 +28,13 @@ yugiohDb.controller("FindCtrl", ['$scope', '$http', '$location', 'cards', '$wind
 		}
 	};
 
-	$scope.familyFind = function(val) {
+	$scope.familyFind = function (val) {
 		// $location.path('/find?family=' + val);
 		var page = 0;
 		$window.location.href = '/find?family=' + val;
 	};
 
-	$scope.typeFind = function(val) {
+	$scope.typeFind = function (val) {
 		// $location.path('/find?type=' + val);
 		var page = 0;
 		$window.location.href = '/find?type=' + val;

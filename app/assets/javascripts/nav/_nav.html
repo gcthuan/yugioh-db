@@ -1,6 +1,6 @@
 <div class="navbar-wrapper">
   <div class="container">
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="NavCtrl">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" ng-init="isCollapsed = true" ng-click="isCollapsed = !isCollapsed ">
@@ -19,8 +19,10 @@
             <li><a ng-href="/card_sets">Browse Sets</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Login</a></li>
-            <li><a href="#">Signup</a></li>
+            <li ng-hide="signedIn()"><a ng-href="/login">Login</a></li>
+            <li ng-hide="signedIn()"><a ng-href="/register">Signup</a></li>
+            <li ng-show="signedIn()"><a ng-href="#">{{user.username}}</a></li>
+            <li ng-show="signedIn()"><a ng-click="logout()" class="logout">Logout</a></li>
           </ul>
           <form class="navbar-form" ng-controller="TypeaheadCtrl">
                 <div class="form-group" ng-style="{'display':'inline'}">

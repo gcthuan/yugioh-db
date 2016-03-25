@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'sets/popular', to: 'card_sets#show_most_popular', defaults: {format: :json}
   get 'find', to: 'cards#search'
   get 'card_sets/popular', to: 'card_sets#show_most_popular', defaults: {format: :json}
+  get 'login', to: 'users#login'
+  get 'register', to: 'users#register'
   resources :cards
   resources :card_sets
 
