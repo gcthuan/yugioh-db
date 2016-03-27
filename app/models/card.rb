@@ -6,6 +6,7 @@ class Card < ActiveRecord::Base
 	friendly_id :name, use: [:slugged, :finders]
 	validates :name, presence: true, uniqueness: true
 	is_impressionable :counter_cache => true
+	has_many :comments, dependent: :destroy
 
 	#send requests to yugiohprices API and pull the data to our database
 	def self.initialize_card_db
