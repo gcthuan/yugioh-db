@@ -47,11 +47,11 @@ ActiveRecord::Schema.define(version: 20160327062252) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "body"
-    t.integer  "votes"
+    t.integer  "votes",      default: 0
     t.string   "author"
     t.integer  "card_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   add_index "comments", ["card_id"], name: "index_comments_on_card_id", using: :btree

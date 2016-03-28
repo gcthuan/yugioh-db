@@ -9,7 +9,14 @@ Rails.application.routes.draw do
   get 'card_sets/popular', to: 'card_sets#show_most_popular', defaults: {format: :json}
   get 'login', to: 'users#login'
   get 'register', to: 'users#register'
-  resources :cards
+  resources :cards do
+    resources :comments, only: [:create, :show, :index], defaults: {format: :json} do
+      member do
+        put '/upvote', to: 'comments#upvote'
+        put '/downvote', to: 'comments#downvote'
+      end
+    end
+  end
   resources :card_sets
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -37,4 +37,26 @@
 			</table>
 		</div>
 	</div>
+	<hr>
+	<div class="row">
+		<h3>Comments</h3>
+		<form ng-submit="addComment()">
+		  <div class="form-group">
+		    <input type="text" class="form-control" placeholder="Add your comment" ng-model="body"></input>
+		  </div>
+		  <button type="submit" class="btn btn-primary">Post</button>
+		</form>
+	</div>
+	<div ng-repeat="comment in card.comments | orderBy:'-votes'" class="row">
+		<h4>{{comment.author}}:</h4>
+		<span>
+	  		{{comment.body}}
+		</span>
+		<ul class="list-inline">
+			<li>{{comment.votes}}</li>
+			<li><span class="glyphicon glyphicon-thumbs-up vote" ng-click="upVote(comment)"></span></li>
+			<li><span class="glyphicon glyphicon-thumbs-down vote" ng-click="downVote(comment)"></span></li>
+		</ul>
+	</div>
+	
 </div>
