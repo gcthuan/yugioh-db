@@ -22,7 +22,7 @@
             <li ng-hide="signedIn()"><a ng-href="/login">Login</a></li>
             <li ng-hide="signedIn()"><a ng-href="/register">Signup</a></li>
             <li ng-show="signedIn()"><a ng-href="#">{{user.username}}</a></li>
-            <li ng-show="signedIn()"><a ng-click="logout()" class="logout">Logout</a></li>
+            <li ng-show="signedIn()"><a ng-click="logout()" class="cursor">Logout</a></li>
           </ul>
           <form class="navbar-form" ng-controller="TypeaheadCtrl">
                 <div class="form-group" ng-style="{'display':'inline'}">

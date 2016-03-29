@@ -27,5 +27,21 @@ yugiohDb.factory('cards', ['$http', function($http) {
 		page += 1;
 	};
 
+	obj.addComment = function(cardSlug, comment) {
+    return $http.post('/cards/' + cardSlug + '/comments.json', comment);
+  	};
+
+	obj.upvoteComment = function(cardSlug, comment) {
+		return $http.put('/cards/' + cardSlug + '/comments/' + comment.id + '/upvote.json').success(function(data) {
+		  comment.votes += 1;
+		});
+	};
+
+	obj.downvoteComment = function(cardSlug, comment) {
+		return $http.put('/cards/' + cardSlug + '/comments/' + comment.id + '/downvote.json').success(function(data) {
+		  comment.votes -= 1;
+		});
+	};
+
 	return obj;
 }]);
