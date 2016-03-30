@@ -20,10 +20,29 @@ yugiohDb.controller("CardsCtrl", ['card', 'cards', '$scope', 'Auth', function (c
 	};
 
 	$scope.upVote = function(comment) {
+		if (comment.currentVote === "downvote") {
+			comment.currentVote = "";
+		}
+		else if (comment.currentVote === undefined || comment.currentVote === ""){
+			comment.currentVote = "upvote";
+		}
+		else {
+			return;
+		}
 		cards.upvoteComment(card.slug, comment);
 	};
 
 	$scope.downVote = function(comment) {
+		if (comment.currentVote === "upvote") {
+			comment.currentVote = "";
+		}
+		else if (comment.currentVote === undefined || comment.currentVote === ""){
+			comment.currentVote = "downvote";
+		}
+		else {
+			return;
+		}
 		cards.downvoteComment(card.slug, comment);
 	};
+
 }]);

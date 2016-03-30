@@ -49,14 +49,15 @@
 	</div>
 	<div ng-repeat="comment in card.comments | orderBy:'-votes'" class="row">
 		<hr>
+		<h5>{{comment.currentVote}}</h5>
 		<h4>{{comment.author}}:</h4>
 		<span>
 	  		{{comment.body}}
 		</span>
 		<ul class="list-inline">
 			<li>{{comment.votes}}</li>
-			<li><span class="glyphicon glyphicon-chevron-up cursor" ng-click="upVote(comment)"></span></li>
-			<li><span class="glyphicon glyphicon-chevron-down cursor" ng-click="downVote(comment)"></span></li>
+			<li><span ng-class="{upvoted: comment.currentVote === 'upvote'}" class="glyphicon glyphicon-chevron-up cursor" ng-click="upVote(comment)"></span></li>
+			<li><span ng-class="{downvoted: comment.currentVote === 'downvote'}" class="glyphicon glyphicon-chevron-down cursor" ng-click="downVote(comment)"></span></li>
 		</ul>
 	</div>
 	

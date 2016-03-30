@@ -29,3 +29,11 @@ td, th {
 .cursor {
 	cursor: pointer;
 }
+
+.upvoted {
+	background-color: #FF8A5F;
+}
+
+.downvoted {
+	background-color: #9393FF;
+}
