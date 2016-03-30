@@ -23,7 +23,7 @@ class CardsController < ApplicationController
   # filter card by family or type
   # GET /cards/find?family=val1&type=val2
   def search
-    @cards = Card.where("data ->> 'family' = '#{params[:family]}' OR data ->> 'type' = '#{params[:type]}'").page params[:page]
+    @cards = Card.where("data ->> 'family' = '#{params[:family]}' OR data ->> 'type' = '#{params[:type]}' OR data ->> 'card_type' = '#{params[:card_type]}'").page params[:page]
   end
 
   # random one card from the db
