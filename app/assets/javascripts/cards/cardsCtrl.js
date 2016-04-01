@@ -9,7 +9,7 @@ yugiohDb.controller("CardsCtrl", ['card', 'cards', '$scope', 'Auth', function (c
 		}
 		else {
 			if ($scope.user === undefined) {
-			username = "Guest";
+				username = "Guest";
 			}
 			else {
 				username = $scope.user.username;
