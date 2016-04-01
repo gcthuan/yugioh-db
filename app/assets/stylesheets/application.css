@@ -37,3 +37,9 @@ td, th {
 .downvoted {
 	background-color: #9393FF;
 }
+/* fix for firefox showing wrong image width in .img-responsive */
+@-moz-document url-prefix() {
+    .img-responsive{
+        width: 100%;
+    }
+}

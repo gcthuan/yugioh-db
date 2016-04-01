@@ -16,7 +16,10 @@
 						<div>
 							<p><a ng-href="cards/{{card.slug}}">{{card.name}}</a></p>
 							<p><strong>Attribute</strong>: <a ng-href="find?family={{card.data.family}}">{{card.data.family}}</a></p>
-							<p><strong>Type</strong>: <a ng-href="find?type={{card.data.type}}">{{card.data.type}}</a></p>
+							<p><strong>Type</strong>: 
+								<a ng-href="find?type={{card.data.type}}">{{card.data.type}}</a>
+								<a ng-show="card.data.type === null" ng-href="/find?card_type={{card.data.card_type}}" ng-click='cardTypeFind(card.data.card_type)'>{{card.data.card_type}}</a>
+							</p>
 						</div>
 					</td>
 					<td>{{card.impressions_count}}</td>
