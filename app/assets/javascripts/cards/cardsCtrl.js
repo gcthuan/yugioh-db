@@ -4,13 +4,18 @@ yugiohDb.controller("CardsCtrl", ['card', 'cards', '$scope', 'Auth', function (c
 		$scope.user = user;
 	})
 	$scope.addComment = function() {
-		console.log($scope.user);
 		if ($scope.body === "") {
 			return;
 		}
 		else {
+			if ($scope.user === undefined) {
+			username = "Guest";
+			}
+			else {
+				username = $scope.user.username;
+			}
 			cards.addComment(card.slug, {
-				author: $scope.user.username || "Guest",
+				author: username,
 				body: $scope.body
 			}).success(function(data) {
 				$scope.card.comments.push(data);

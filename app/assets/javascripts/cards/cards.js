@@ -21,10 +21,11 @@ yugiohDb.factory('cards', ['$http', function($http) {
 	};
 
 	obj.getAll = function() {
+		page += 1;
 		return $http.get('/cards.json?page=' + page).then(function(response) {
 			return response.data;
 		});
-		page += 1;
+		
 	};
 
 	obj.addComment = function(cardSlug, comment) {

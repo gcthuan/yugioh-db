@@ -15,10 +15,11 @@ yugiohDb.factory('sets', ['$http', function ($http) {
 	};
 
 	obj.getAll = function() {
+		page += 1;
 		return $http.get('/card_sets.json?page=' + page).then(function(response) {
 			return response.data;
 		});
-		page += 1;
+		
 	};
 
 	return obj;
