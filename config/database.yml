@@ -82,8 +82,8 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-# production:
-#   <<: *default
-#   database: yugioh-db_production
-#   username: yugioh-db
-#   password: <%= ENV['YUGIOH-DB_DATABASE_PASSWORD'] %>
+production:
+  <<: *default
+  database: yugioh-db_production
+  username: yugioh-db
+  password: <%= ENV['YUGIOH-DB_DATABASE_PASSWORD'] %>

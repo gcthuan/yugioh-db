@@ -1,0 +1,67 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+			<img ng-src="{{card.card_image}}" class="img-responsive">
+		</div>
+		<div class="col-md-6">
+			<h2>{{card.name}}</h2>
+			<hr>
+			<table class="table table-bordered" style="width: auto;">
+
+				<tbody>
+					<tr>
+						<th>Attribute</th>
+						<td><a ng-href="/find?family={{card.data.family}}" ng-click='typeFind(card.data.family)'>{{card.data.family}}</a></td>
+					</tr>
+					<tr>
+						<th>Type</th>
+						<td>
+							<a ng-href="/find?type={{card.data.type}}" ng-click='typeFind(card.data.type)'>{{card.data.type}}</a>
+							<a ng-show="card.data.type === null" ng-href="/find?card_type={{card.data.card_type}}" ng-click='cardTypeFind(card.data.card_type)'>{{card.data.card_type}}</a>
+						</td>
+
+					</tr>
+					<tr>
+						<th>Level</th>
+						<td>{{card.data.level}}</td>
+					</tr>
+					<tr>
+						<th>ATK</th>
+						<td>{{card.data.atk}}</td>
+					</tr>
+					<tr>
+						<th>DEF</th>
+						<td>{{card.data.def}}</td>
+					</tr>
+					<tr>
+						<th>Description</th>
+						<td>{{card.data.text}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<h3>Comments</h3>
+		<form ng-submit="addComment()">
+		  <div class="form-group">
+		    <input type="text" class="form-control" placeholder="Add your comment" ng-model="body"></input>
+		  </div>
+		  <button type="submit" class="btn btn-primary">Post</button>
+		</form>
+	</div>
+	<div ng-repeat="comment in card.comments | orderBy:'-votes'" class="row">
+		<hr>
+		<h4>{{comment.author}}:</h4>
+		<span>
+	  		{{comment.body}}
+		</span>
+		<ul class="list-inline">
+			<li>{{comment.votes}}</li>
+			<li><span ng-class="{upvoted: comment.currentVote === 'upvote'}" class="glyphicon glyphicon-chevron-up cursor" ng-click="upVote(comment)"></span></li>
+			<li><span ng-class="{downvoted: comment.currentVote === 'downvote'}" class="glyphicon glyphicon-chevron-down cursor" ng-click="downVote(comment)"></span></li>
+		</ul>
+	</div>
+	
+</div>

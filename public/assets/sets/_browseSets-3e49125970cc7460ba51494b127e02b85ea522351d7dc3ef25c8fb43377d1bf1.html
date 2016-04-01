@@ -1,0 +1,28 @@
+<div class="container">
+	<div class="col-md-9">
+		<h2 ng-style="{'text-align': 'center'}">Browse Sets</h2>
+		<table class="table table-striped table-bordered .table-responsive" >
+			<thead>
+				<tr>
+					<th ng-style="{'width': '20%'}"></th>
+					<th>Set</th>
+					<th>Views</th>
+				</tr>
+			</thead>
+			<tbody infinite-scroll="load()">
+				<tr ng-repeat="set in browseSets">
+					<td><img class="img-responsive" ng-src="{{set.set_image}}"></img></td>
+					<td>
+						<div>
+							<p><a ng-href="card_sets/{{set.slug}}">{{set.name}}</a></p>
+							<div ng-repeat="(rarity, count) in set.rarities">
+								<p><strong>{{rarity}}</strong>: {{count}}</p>
+							</div>
+						</div>
+					</td>
+					<td>{{set.impressions_count}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

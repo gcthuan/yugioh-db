@@ -1,0 +1,31 @@
+<div class="container">
+
+	<div class="col-md-9">
+		<h2 ng-style="{'text-align': 'center'}">Results</h2>
+		<table class="table table-striped table-bordered .table-responsive" >
+			<thead>
+				<tr>
+					<th style="width: 20%"></th>
+					<th>Card</th>
+					<th>Views</th>
+				</tr>
+			</thead>
+			<tbody infinite-scroll="load()" infinite-scroll-disable="{{busy}}">
+				<tr ng-repeat="card in result | orderBy:'-impressions_count'">
+					<td><img class="img-responsive" ng-src="{{card.card_image}}"></img></td>
+					<td>
+						<div>
+							<p><a ng-href="cards/{{card.slug}}">{{card.name}}</a></p>
+							<p><strong>Attribute</strong>: <a ng-href="/find?family={{card.data.family}}" ng-click='familyFind(card.data.family)'>{{card.data.family}}</a></p>
+							<p><strong>Type</strong>:
+								<a ng-href="/find?type={{card.data.type}}" ng-click='typeFind(card.data.type)'>{{card.data.type}}</a>
+								<a ng-show="card.data.type === null" ng-href="/find?card_type={{card.data.card_type}}" ng-click="cardTypeFind(card.data.card_type)">{{card.data.card_type}}</a>
+							</p>
+						</div>
+					</td>
+					<td>{{card.impressions_count}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
