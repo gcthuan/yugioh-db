@@ -15,10 +15,6 @@
  *= require_self
  */
 
-/* fix heroku not showing glyphicon */
-@import "bootstrap-sprockets";
-@import "bootstrap";
-
 body { 
   padding-top: 70px;
 }
