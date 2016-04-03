@@ -32,14 +32,18 @@
 						<th>Rarity</th>
 					</tr>
 				</thead>
-				<tbody>
 					<tr ng-repeat="card in set.data.cards">
 
 						<td><img ng-src="{{card.card_image}}" class="img-responsive center-block" alt="{{card.name}}"></img></td>
 						<td><a ng-href="cards/{{card.slug}}">{{card.name}}</a></td>
 						<td>{{card.numbers[0].print_tag}}</td>
-						<td>{{card.family}}</td>
-						<td>{{card.type}}</td>
+						<td>
+							<a ng-href="/find?family={{card.family}}">{{card.family}}</a>
+						</td>
+						<td>
+							<a ng-href="/find?type={{card.type}}">{{card.type}}</a>
+							<a ng-show="card.type === null" ng-href="/find?card_type={{card.card_type}}">{{card.card_type}}</a>
+						</td>
 						<td>{{card.numbers[0].rarity}}</td>
 					</tr>
 				</tbody>
