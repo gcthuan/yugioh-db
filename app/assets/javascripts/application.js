@@ -4,4 +4,5 @@
 //= require angular-bootstrap
 //= require angular-rails-templates
 //= require ngInfiniteScroll
+//= require angular-loading-bar
 //= require_tree .

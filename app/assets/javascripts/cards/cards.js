@@ -29,7 +29,7 @@ yugiohDb.factory('cards', ['$http', function($http) {
 	};
 
 	obj.addComment = function(cardSlug, comment) {
-    return $http.post('/cards/' + cardSlug + '/comments.json', comment);
+  	  	return $http.post('/cards/' + cardSlug + '/comments.json', comment);
   	};
 
 	obj.upvoteComment = function(cardSlug, comment) {
