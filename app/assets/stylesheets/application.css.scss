@@ -19,8 +19,13 @@ $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
 @import "bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
 @import "bootstrap-sass/assets/stylesheets/bootstrap";
 
+html {
+	top:auto;
+}
+
 body { 
   padding-top: 70px;
+
 }
 
 td, th {

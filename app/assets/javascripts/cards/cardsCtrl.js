@@ -1,4 +1,4 @@
-yugiohDb.controller("CardsCtrl", ['card', 'cards', '$scope', 'Auth', function (card, cards, $scope, Auth) {
+yugiohDb.controller("CardsCtrl", ['card', 'cards', '$scope', 'Auth', '$rootScope', '$document', function (card, cards, $scope, Auth, $rootScope, $document) {
 	$scope.card = card;
 	Auth.currentUser().then(function (user) {
 		$scope.user = user;
@@ -49,5 +49,9 @@ yugiohDb.controller("CardsCtrl", ['card', 'cards', '$scope', 'Auth', function (c
 		}
 		cards.downvoteComment(card.slug, comment);
 	};
+
+	$rootScope.$on('$stateChangeSuccess', function() {
+   		$document[0].body.scrollTop = $document[0].documentElement.scrollTop = 0;
+	});
 
 }]);

@@ -1,4 +1,4 @@
-yugiohDb.controller("BrowseCardsCtrl", ['browseCards','$scope', '$http', function (browseCards, $scope, $http) {
+yugiohDb.controller("BrowseCardsCtrl", ['browseCards','$scope', '$http', '$rootScope', '$document', function (browseCards, $scope, $http, $rootScope, $document) {
 	$scope.browseCards = browseCards;
 	var page = 0;
 
@@ -11,5 +11,9 @@ yugiohDb.controller("BrowseCardsCtrl", ['browseCards','$scope', '$http', functio
 		});
 		
 	};
+
+	$rootScope.$on('$stateChangeSuccess', function() {
+   		$document[0].body.scrollTop = $document[0].documentElement.scrollTop = 0;
+	});
 
 }]);
