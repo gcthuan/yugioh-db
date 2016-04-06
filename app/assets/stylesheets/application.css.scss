@@ -20,12 +20,13 @@ $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
 @import "bootstrap-sass/assets/stylesheets/bootstrap";
 
 html {
-	top:auto;
+    position: relative;
+    min-height: 100%;
 }
 
 body { 
   padding-top: 70px;
-
+  margin: 0 0 50px; /* 50px = footer height */
 }
 
 td, th {
