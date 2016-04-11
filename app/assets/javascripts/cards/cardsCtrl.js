@@ -18,10 +18,12 @@ yugiohDb.controller("CardsCtrl", ['card', 'cards', '$scope', 'Auth', '$rootScope
 				author: username,
 				body: $scope.body
 			}).success(function(data) {
+				console.log(data);
 				$scope.card.comments.push(data);
 			});
 		}
 		$scope.body = "";
+		console.log($scope.card.comments);
 	};
 
 	$scope.upVote = function(comment) {
@@ -34,6 +36,7 @@ yugiohDb.controller("CardsCtrl", ['card', 'cards', '$scope', 'Auth', '$rootScope
 		else {
 			return;
 		}
+		console.log(comment);
 		cards.upvoteComment(card.slug, comment);
 	};
 
@@ -47,6 +50,7 @@ yugiohDb.controller("CardsCtrl", ['card', 'cards', '$scope', 'Auth', '$rootScope
 		else {
 			return;
 		}
+		console.log(comment);
 		cards.downvoteComment(card.slug, comment);
 	};
 
