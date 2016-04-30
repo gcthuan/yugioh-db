@@ -1,7 +1,7 @@
 ## README
 
 ###Overview
-This is a full-stack web project using Ruby on Rails and AngularJS which allows users to easily browse more than 7000 thousand of Yugioh! cards and sets.
+This is a full-stack web project using Ruby on Rails and AngularJS which allows users to easily browse more than 7000 Yugioh! cards and sets.
 
 ###Demo
 https://yugiohdb.herokuapp.com/
