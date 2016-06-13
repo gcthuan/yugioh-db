@@ -57,8 +57,8 @@ group :development do
 end
 
 group :test do
-	gem 'rspec-rails', '2.13.1'
-  gem 'guard-rspec', '2.5.0'
+	gem 'rspec-rails', '~> 3.4'
+  gem 'factory_girl_rails'
 end
 
 group :production do

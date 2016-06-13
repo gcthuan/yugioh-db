@@ -1,6 +1,6 @@
 class CardsController < ApplicationController
   before_action :set_card, only: [:show, :edit, :update, :destroy]
-  impressionist actions: [:show]
+  impressionist actions: [:show, :show_most_popular]
   # GET /cards
   # GET /cards.json
   def index
