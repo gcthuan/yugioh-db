@@ -2,20 +2,22 @@ class CommentsController < ApplicationController
 	def create
 		@card = Card.find(params[:card_id])
 		@comment = @card.comments.create(comment_params)
+		render status: :created
 	end
 
 	def index
 		@card = Card.find(params[:card_id])
-		puts @card.comments.count
 		@comments = @card.comments
 	end
 
 	def upvote
-		Comment.increment_counter(:votes, params[:id])
+		@comment = Comment.find(params[:id])
+		@comment.increment!(:votes, 1)
 	end
 
 	def downvote
-		Comment.decrement_counter(:votes, params[:id])
+		@comment = Comment.find(params[:id])
+		@comment.increment!(:votes, 1)
 	end
 
 	private
