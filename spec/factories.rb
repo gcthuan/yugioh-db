@@ -11,4 +11,9 @@ FactoryGirl.define do
 		set_image "link"
 	end
 
+	factory :comment do
+		body "This is a comment."
+		author "User"
+	end
+
 end
