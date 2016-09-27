@@ -1,1 +1,1 @@
-Elasticsearch::Model.client = Elasticsearch::Client.new host:'http://ec2-54-193-46-145.us-west-1.compute.amazonaws.com:9200'
+Elasticsearch::Model.client = Elasticsearch::Client.new host:ENV["ELASTIC_SEARCH_URL"]
