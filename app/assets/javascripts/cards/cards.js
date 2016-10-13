@@ -1,4 +1,4 @@
-getvsryugiohDb.factory('cards', ['$http', function($http) {
+yugiohDb.factory('cards', ['$http', function($http) {
 	var obj = {};
 	var page = 0;
 

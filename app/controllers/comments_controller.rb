@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
 
 	def downvote
 		@comment = Comment.find(params[:id])
-		@comment.increment!(:votes, 1)
+		@comment.decrement!(:votes, 1)
 	end
 
 	private

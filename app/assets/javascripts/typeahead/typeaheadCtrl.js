@@ -1,4 +1,4 @@
-yugiohDb.controller("TypeaheadCtrl", ['$scope', '$http', '$location', 'cards' ,function ($scope, $http, $location, cards) {
+yugiohDb.controller("typeaheadCtrl", ['$scope', '$http', '$location', 'cards' ,function ($scope, $http, $location, cards) {
 
 	$scope.result = [];
 
